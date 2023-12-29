@@ -1,0 +1,15 @@
+.price{
+    font: size 1.3 rem;;
+    font-style: initial;
+    font-weight: 600;
+    color:rgb(17, 13, 17)
+    ;
+}
+.discount{
+    font-size:1.3 rem;
+    font-weight: 700;
+    font-style:initial;
+    color: rgba(241, 91, 21, 0.884);
+    /* border-radius: 10 px; */
+    /* background: rgb(224, 194, 160); */
+}

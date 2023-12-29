@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <div class="container  p-3">
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                 <img [src]="product?.thumbnailimage" alt="product-image">
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 ps-5">
+               <div class="col-xl-12">
+                <h3 style="font-style:italic; font-weight: 800;">{{product?.title}}</h3>
+                <hr>
+               </div>
+               <div class="col-xl 12">
+                <h4> Color : {{product?.color?.value}}</h4>
+               </div><hr>
+               <div class="col-xl-12">
+                <h4>
+                    Category : {{product?.category}}
+                </h4>
+               </div><hr>
+               <div class="col-xl-12">
+                <h4>
+                    Category : {{product?.subcategory}}
+                    Occasion : {{product?.occasion}}
+                </h4>
+               </div><hr>
+               <div class="col-xl 12">
+                <h4>Rate: {{product?.price  | currency:'INR'}} </h4><hr>
+               </div>
+               <div class="col xl 12">
+                <p style="font-family: 'Courier New', Courier, monospace;">Gender: {{product?.gender}}</p>
+               </div>
+               <div class="col xl 12 mt-5">
+                 <div class="row gy-5">
+                    <button class="btn btn-primary">Add to Cart</button>
+                    <button class="btn btn-danger">Buy Now</button>
+
+                 </div>
+               </div>
+             </div>
+        </div>
+    </div>
+</div>

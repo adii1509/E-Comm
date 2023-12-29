@@ -1,0 +1,97 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shop" viewBox="0 0 16 16">
+      <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0M1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5M4 15h3v-5H4zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1zm3 0h-2v3h2z"/>
+    </svg>
+    <a class="navbar-brand fs-3 fw-bold brand-logo">E-Comm</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a  routerLink="/"  class="nav-link" aria-current="page" style="font-weight: 700;" >Home</a>
+        </li>
+        <li class="nav-item">
+          <a  routerLink="/about" class="nav-link" style="font-weight: 700;">About</a>
+        </li>
+        <li class="nav-item">
+          <a  routerLink="/products" class="nav-link" style="font-weight: 700;" >Products</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/contacts"  class="nav-link" style="font-weight: 700;">Contact us</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <!--  CArt-->
+         <button class="btn btn-outline-info m-1 btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#cartModal">Cart({{cartItems}})
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+        </svg> 
+         </button>
+
+        <button class="btn btn-outline-success m-1 btn-sm" type="button">Register</button>
+        <button class="btn btn-outline-primary m-1 btn-sm" type="button">Login</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<!-- Modal -->
+<div class="modal fade" id="cartModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Cart Items</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Item</th>
+                <th>Qnt</th>
+                <th>Price</th>
+                <th>Total Price</th>
+              </tr>
+            </thead>
+  
+            <tbody>
+              <tr *ngFor="let item of itemsList; let i = index; ">
+                <td>{{i+1}}</td>
+                <td>{{item?.title}}</td>
+                <td>
+                  <button class="btn btn-success " (click)="decreasQnty(i)">-</button>
+                  {{item?.qnty}}
+                  <button class="btn btn-success " (click)="increasQnty(i)">+</button>
+                </td>
+                <td>{{item?.price}}</td>
+                <td>{{item?.price * item?.qnty}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                  <strong>
+                    Grand Total
+                  </strong>
+                </td>
+                <td>
+                  <strong>
+                    {{grandTotal | currency:'INR'}}
+                  </strong>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">CheackOut</button>
+      </div>
+    </div>
+  </div>
+</div>

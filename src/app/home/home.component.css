@@ -1,0 +1,60 @@
+
+.search-section{
+    display: flex;
+    justify-content: center;
+}
+      .input-group{
+        width: fit-content;
+        padding: 10px 20px;
+
+        justify-content: center;
+    }
+
+       .search-section input,button{
+            border: none;
+            outline: none;
+            border: none;
+            outline: none;
+            padding: 10px;
+        }
+        .search-section button{
+            border-top-right-radius: 25px;
+            border-bottom-right-radius: 25px;
+            border: solid 1px lightgray;
+        }
+      .search-section  input{
+           border-bottom-left-radius: 25px;
+           border-bottom-left-radius: 25px;
+           border: solid 1px lightgray;
+           width: 50%;
+        }
+
+    
+    
+   input::placeholder{
+    font-style: italic;
+    color: gray;
+   }
+
+    .card .image{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+        img{
+            max-height: 150px;
+        }
+    } 
+    .price{
+        font: size 1.3 rem;;
+        font-style: initial;
+        font-weight: 600;
+        color:rgb(17, 13, 17)
+        ;
+    }
+    .discount{
+        font-size: 1.1 rem;
+        font-style:inherit;
+        color: aliceblue;
+        border-radius: 20px;
+        background: rgb(107, 79, 47);
+    }
